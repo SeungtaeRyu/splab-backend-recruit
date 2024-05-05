@@ -26,10 +26,6 @@ out/
 !**/src/main/**/out/
 !**/src/test/**/out/
 
-### 환경변수
-**/*.yml
-**/env.template
-
 
 ### NetBeans ###
 /nbproject/private/
@@ -40,3 +36,10 @@ out/
 
 ### VS Code ###
 .vscode/
+
+### 환경변수
+**/application.yml
+**/application-local.yml
+**/application-dev.yml
+**/application-prod.yml
+**/env.template
