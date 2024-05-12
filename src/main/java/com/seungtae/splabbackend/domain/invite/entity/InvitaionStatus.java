@@ -1,4 +1,4 @@
-package com.seungtae.splabbackend.domain.user.entity;
+package com.seungtae.splabbackend.domain.invite.entity;
 
 
 import lombok.Getter;
