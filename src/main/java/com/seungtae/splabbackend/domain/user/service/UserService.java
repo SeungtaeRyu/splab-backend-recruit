@@ -3,8 +3,8 @@ package com.seungtae.splabbackend.domain.user.service;
 
 import com.seungtae.splabbackend.domain.group.entity.GroupEntity;
 import com.seungtae.splabbackend.domain.group.repository.GroupRepository;
-import com.seungtae.splabbackend.domain.invite.entity.InviteEntity;
-import com.seungtae.splabbackend.domain.invite.repository.InviteRepository;
+import com.seungtae.splabbackend.domain.invite.entity.InvitationEntity;
+import com.seungtae.splabbackend.domain.invite.repository.InvitationRepository;
 import com.seungtae.splabbackend.domain.user.dto.request.InviteMemberRequestDto;
 import com.seungtae.splabbackend.domain.user.dto.request.MemberDto;
 import com.seungtae.splabbackend.domain.user.entity.UserEntity;
@@ -27,7 +27,7 @@ import static com.seungtae.splabbackend.exception.ErrorCode.NOT_FOUND_ENTITY;
 public class UserService {
 	private final UserRepository userRepository;
 	private final GroupRepository groupRepository;
-	private final InviteRepository inviteRepository;
+	private final InvitationRepository invitationRepository;
 
 	public Boolean inviteMember(InviteMemberRequestDto memberInvitationRequestDto) {
 
@@ -56,13 +56,13 @@ public class UserService {
 		// 초대장 등록
 		for(MemberDto memberDto: memberInvitationRequestDto.getMembers()) {
 			UserEntity member = userRepository.findByUserPhone(memberDto.getUserPhone());
-			InviteEntity invite = InviteEntity.builder()
+			InvitationEntity invite = InvitationEntity.builder()
 				.group(group)
 				.member(member)
 				.message(memberInvitationRequestDto.getInvitationMassage())
 				.status(PENDING)
 				.build();
-			inviteRepository.save(invite);
+			invitationRepository.save(invite);
 		}
 
 		/**

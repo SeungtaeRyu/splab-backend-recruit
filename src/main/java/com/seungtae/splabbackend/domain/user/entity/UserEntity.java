@@ -2,8 +2,7 @@ package com.seungtae.splabbackend.domain.user.entity;
 
 
 import com.seungtae.splabbackend.common.entity.BaseEntity;
-import com.seungtae.splabbackend.domain.group.entity.GroupEntity;
-import com.seungtae.splabbackend.domain.invite.entity.InviteEntity;
+import com.seungtae.splabbackend.domain.invite.entity.InvitationEntity;
 import jakarta.persistence.*;
 import lombok.Getter;
 
@@ -13,6 +12,7 @@ import java.util.List;
 
 @Entity
 @Getter
+@Table(name = "users")
 public class UserEntity extends BaseEntity {
 
 	@Id
@@ -24,5 +24,5 @@ public class UserEntity extends BaseEntity {
 	private String userEmail;
 
 	@OneToMany(mappedBy = "member")
-	private List<InviteEntity> invitedGroups = new ArrayList<>();
+	private List<InvitationEntity> invitedGroups = new ArrayList<>();
 }

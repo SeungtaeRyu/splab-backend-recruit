@@ -12,11 +12,13 @@ import lombok.Getter;
 @Entity
 @Getter
 @Builder
-public class InviteEntity extends BaseEntity {
+@Table(name = "invitation")
+public class InvitationEntity extends BaseEntity {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long inviteId;
+	@Column(name = "invitationId")
+	private Long invitationId;
 
 	@ManyToOne
 	@JoinColumn(name = "group_id")
