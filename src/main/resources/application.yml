@@ -41,12 +41,12 @@ spring:
 
   # JPA
   jpa:
-#    show-sql: ${jpa.show.sql}
+    show-sql: ${jpa.show.sql}
     database: mysql
     database-platform: org.hibernate.dialect.MySQL8Dialect
     properties:
       hibernate:
-#        format_sql: true
+        format_sql: true
 
 ## hibernate logging
 #logging:

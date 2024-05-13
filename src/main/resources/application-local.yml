@@ -24,13 +24,14 @@ spring:
     cache: false
   # JPA for auto reload
   jpa:
-    show-sql: false
+    show-sql: ${jpa.show.sql}
     hibernate.ddl-auto: ${jpa.ddl.option}
-#  sql:
-#    init:
-#      mode: ${sql.init.mode}
-#      schema-locations: classpath:schema.sql
-#      data-locations: classpath:data.sql
+    defer-datasource-initialization: true
+  sql:
+    init:
+      mode: ${sql.init.mode}
+      schema-locations: classpath:schema.sql
+      data-locations: classpath:data.sql
 
 #  # Redis
 #  redis:
