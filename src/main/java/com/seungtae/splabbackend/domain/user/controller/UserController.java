@@ -27,4 +27,10 @@ public class UserController {
 		return ResponseEntity.ok().body(ResultDto.ofSuccess());
 	}
 
+
+	@PostMapping("/joinMember")
+	public ResponseEntity<ResultDto<Boolean>> joinMember(@RequestBody JoinMemberRequestDto joinMemberRequestDto) {
+		return ResponseEntity.ok().body(ResultDto.ofSuccess());
+	}
+
 }
