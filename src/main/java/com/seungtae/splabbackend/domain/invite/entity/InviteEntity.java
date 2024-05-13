@@ -5,11 +5,13 @@ import com.seungtae.splabbackend.common.entity.BaseEntity;
 import com.seungtae.splabbackend.domain.group.entity.GroupEntity;
 import com.seungtae.splabbackend.domain.user.entity.UserEntity;
 import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.Getter;
 
 
 @Entity
 @Getter
+@Builder
 public class InviteEntity extends BaseEntity {
 
 	@Id
@@ -27,4 +29,7 @@ public class InviteEntity extends BaseEntity {
 	private String message;
 
 	private InvitaionStatus status;
+
+
+
 }
