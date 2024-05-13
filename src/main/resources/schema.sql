@@ -1,6 +1,7 @@
 DROP TABLE IF EXISTS `invitation`;
-DROP TABLE IF EXISTS `users`;
 DROP TABLE IF EXISTS `team`;
+DROP TABLE IF EXISTS `users`;
+
 
 -- USER
 CREATE TABLE `users`
@@ -35,5 +36,7 @@ CREATE TABLE `invitation`
     `status`             VARCHAR(255) NOT NULL,
     `created_at`         TIMESTAMP    NOT NULL DEFAULT now(),
     `updated_at`         TIMESTAMP    NOT NULL DEFAULT now(),
-    PRIMARY KEY (`invitation_id`)
+    PRIMARY KEY (`invitation_id`),
+    FOREIGN KEY (group_id) REFERENCES team(group_id),
+    FOREIGN KEY (member_id) REFERENCES users(user_id)
 ) engine=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
