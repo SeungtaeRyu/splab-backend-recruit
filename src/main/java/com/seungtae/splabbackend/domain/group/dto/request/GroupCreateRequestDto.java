@@ -6,6 +6,6 @@ import lombok.Data;
 
 @Data
 public class GroupCreateRequestDto {
-	private Long user;
+	private Long userId;
 	private String groupName;
 }

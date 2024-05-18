@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/group")
 public class GroupController {
 
-	private GroupService groupService;
+	private final GroupService groupService;
 
 	@PostMapping("/create")
 	public ResponseEntity<ResultDto<Boolean>> create(@RequestBody GroupCreateRequestDto groupCreateRequestDto) {
