@@ -7,6 +7,8 @@ import com.seungtae.splabbackend.domain.invite.entity.InvitationEntity;
 import com.seungtae.splabbackend.domain.invite.repository.InvitationRepository;
 import com.seungtae.splabbackend.domain.user.dto.request.InviteMemberRequestDto;
 import com.seungtae.splabbackend.domain.user.dto.request.MemberDto;
+import com.seungtae.splabbackend.domain.user.dto.request.UserCreateRequestDto;
+import com.seungtae.splabbackend.domain.user.dto.response.UserCreateResponseDto;
 import com.seungtae.splabbackend.domain.user.entity.UserEntity;
 import com.seungtae.splabbackend.domain.user.repository.UserRepository;
 import com.seungtae.splabbackend.exception.CustomException;
@@ -70,6 +72,22 @@ public class UserService {
 		 */
 
 		return true;
+	}
+
+
+	public UserCreateResponseDto create(UserCreateRequestDto userCreateRequestDto) {
+		// 이메일 중복 검사 생략
+
+		// 휴대폰 중복 검사 생략
+
+		UserEntity user = UserEntity.builder()
+			.userName(userCreateRequestDto.getUserName())
+			.userPhone(userCreateRequestDto.getUserPhone())
+			.userEmail(userCreateRequestDto.getUserEmail())
+			.build();
+		UserEntity saved = userRepository.save(user);
+		UserCreateResponseDto userCreateResponseDto = UserCreateResponseDto.fromEntity(saved);
+		return userCreateResponseDto;
 	}
 
 }

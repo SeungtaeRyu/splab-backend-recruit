@@ -27,11 +27,11 @@ spring:
     show-sql: ${jpa.show.sql}
     hibernate.ddl-auto: ${jpa.ddl.option}
     defer-datasource-initialization: true
-  sql:
-    init:
-      mode: ${sql.init.mode}
-      schema-locations: classpath:schema.sql
-      data-locations: classpath:data.sql
+#  sql:
+#    init:
+#      mode: ${sql.init.mode}
+#      schema-locations: classpath:schema.sql
+#      data-locations: classpath:data.sql
 
 #  # Redis
 #  redis:
